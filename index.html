@@ -237,26 +237,31 @@
     width: 100vw;
     left: 50%;
     transform: translateX(-50%);
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
     mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+  }
+
+  .marquee::-webkit-scrollbar{
+    display: none;
+  }
+
+  .marquee.dragging{
+    cursor: grabbing;
+    scroll-behavior: auto;
   }
 
   .marquee-track{
     display: flex;
     gap: 14px;
     width: max-content;
-    padding: 2px 0 10px;
-    animation: marquee-scroll 90s linear infinite;
-  }
-
-  .marquee:hover .marquee-track{
-    animation-play-state: paused;
-  }
-
-  @keyframes marquee-scroll{
-    from{ transform: translateX(0); }
-    to{ transform: translateX(-50%); }
+    padding: 2px 40px 10px;
   }
 
   .shop-card{
@@ -319,7 +324,7 @@
   }
 
   @media (prefers-reduced-motion: reduce){
-    .marquee-track{ animation: none; }
+    .marquee{ scroll-behavior: auto; }
   }
 
   .footer{
@@ -542,10 +547,105 @@
     }
 
     const track = document.getElementById('shop-track');
-    if(track){
-      const original = shopItems.map(item => cardHTML(item, false)).join('');
-      const duplicate = shopItems.map(item => cardHTML(item, true)).join('');
-      track.innerHTML = original + duplicate;
+    const marquee = document.querySelector('.marquee');
+
+    if(track && marquee){
+      // Render three copies so the user can drag/scroll backward or forward
+      // and the loop always has content on both sides to wrap into.
+      const real = shopItems.map(item => cardHTML(item, false)).join('');
+      const ghost = shopItems.map(item => cardHTML(item, true)).join('');
+      track.innerHTML = ghost + real + ghost;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let setWidth = 0;
+      let autoScroll = !prefersReducedMotion;
+      let resumeTimer = null;
+      let isDragging = false;
+      let dragStartX = 0;
+      let dragStartScroll = 0;
+      let rafId = null;
+      const speed = 0.5; // px per frame
+
+      function measure(){
+        setWidth = track.scrollWidth / 3;
+      }
+
+      function wrapIfNeeded(){
+        if(setWidth <= 0) return;
+        if(marquee.scrollLeft >= setWidth * 2){
+          marquee.scrollLeft -= setWidth;
+        } else if(marquee.scrollLeft <= 0){
+          marquee.scrollLeft += setWidth;
+        }
+      }
+
+      function pauseAuto(){
+        autoScroll = false;
+        if(resumeTimer) clearTimeout(resumeTimer);
+      }
+
+      function scheduleResume(delay){
+        if(resumeTimer) clearTimeout(resumeTimer);
+        if(prefersReducedMotion) return;
+        resumeTimer = setTimeout(() => { autoScroll = true; }, delay || 2000);
+      }
+
+      function tick(){
+        if(autoScroll && !isDragging){
+          marquee.scrollLeft += speed;
+          wrapIfNeeded();
+        }
+        rafId = requestAnimationFrame(tick);
+      }
+
+      // Mouse drag support (touch scrolling works natively via overflow-x)
+      marquee.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        marquee.classList.add('dragging');
+        dragStartX = e.pageX;
+        dragStartScroll = marquee.scrollLeft;
+        pauseAuto();
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if(!isDragging) return;
+        e.preventDefault();
+        const delta = e.pageX - dragStartX;
+        marquee.scrollLeft = dragStartScroll - delta;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if(!isDragging) return;
+        isDragging = false;
+        marquee.classList.remove('dragging');
+        scheduleResume(2000);
+      });
+
+      // Touch: let native scrolling happen, just pause/resume around it
+      marquee.addEventListener('touchstart', pauseAuto, { passive: true });
+      marquee.addEventListener('touchend', () => scheduleResume(2000), { passive: true });
+
+      // Wheel: allow vertical wheel to scroll the strip horizontally
+      marquee.addEventListener('wheel', (e) => {
+        if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+          e.preventDefault();
+          marquee.scrollLeft += e.deltaY;
+        }
+        pauseAuto();
+        scheduleResume(2000);
+      }, { passive: false });
+
+      marquee.addEventListener('scroll', wrapIfNeeded, { passive: true });
+
+      window.addEventListener('resize', measure);
+
+      // Wait a frame so layout (fixed-width cards) is settled, then center on the real set
+      requestAnimationFrame(() => {
+        measure();
+        marquee.scrollLeft = setWidth;
+        rafId = requestAnimationFrame(tick);
+      });
     }
   </script>
 </body>
