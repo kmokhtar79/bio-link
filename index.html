@@ -207,6 +207,121 @@
   .link-card[data-key="kofi"]{ --accent-color: var(--teal); }
 
   /* ---- footer ---- */
+  /* ---- shop marquee ---- */
+  .shop-section{
+    width: 100%;
+    max-width: 420px;
+    margin-top: 44px;
+  }
+
+  .shop-label{
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .shop-label::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .marquee{
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+  }
+
+  .marquee-track{
+    display: flex;
+    gap: 14px;
+    width: max-content;
+    padding: 2px 0 10px;
+    animation: marquee-scroll 90s linear infinite;
+  }
+
+  .marquee:hover .marquee-track{
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  .shop-card{
+    flex: none;
+    width: 168px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .shop-card:hover,
+  .shop-card:focus-visible{
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+
+  .shop-card:focus-visible{
+    outline: 2px solid var(--teal);
+    outline-offset: 2px;
+  }
+
+  .shop-thumb{
+    width: 100%;
+    height: 112px;
+    object-fit: cover;
+    display: block;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .shop-info{
+    padding: 10px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .shop-name{
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .shop-tag{
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .shop-sold{
+    font-size: 10px;
+    color: var(--amber);
+    margin-top: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{ animation: none; }
+  }
+
   .footer{
     margin-top: 44px;
     font-size: 11px;
@@ -281,6 +396,15 @@
 
     </nav>
 
+    <section class="shop-section" aria-label="Shop items">
+      <div class="shop-label">from the shop</div>
+      <div class="marquee">
+        <div class="marquee-track" id="shop-track">
+          <!-- items injected by JS below, duplicated once for seamless infinite loop -->
+        </div>
+      </div>
+    </section>
+
     <div class="footer">
       <span class="dash"></span>
       <span>grid: 22px</span>
@@ -288,5 +412,141 @@
     </div>
 
   </div>
+
+  <script>
+    const shopItems = [
+      {
+        name: "Glacis Widgy Pack",
+        tag: "Glassmorphism weather widgets",
+        sold: "32 sold",
+        url: "https://ko-fi.com/s/bb46651ea0",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/c6e0e4c3-74d2-46f4-89d6-70d5310aa278_gn7g20yuyfykn007qqx0f5hej384.png"
+      },
+      {
+        name: "Glance",
+        tag: "10 small widgets, 3 modes",
+        sold: "7 sold",
+        url: "https://ko-fi.com/s/4f7237e242",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/d4ccf062-a682-4c16-bf06-43df4a10fdf9_glance.png"
+      },
+      {
+        name: "Eighteen",
+        tag: "12 items + wallpaper",
+        sold: "10 sold",
+        url: "https://ko-fi.com/s/577937293c",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/109a9d8c-0810-40fd-a1ae-9d8b4bf5246f_eighteen.png"
+      },
+      {
+        name: "Pi Pi Widgy Pack Vol.8",
+        tag: "16 Widgys for iOS Widgy",
+        sold: "9 sold",
+        url: "https://ko-fi.com/s/8af7d6a70b",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/573f1a93-d286-45b1-b9ab-351f4d70fff0_pipi-home2.png"
+      },
+      {
+        name: "AryaMod's Private Drive",
+        tag: "Weekly exclusive Widgys",
+        sold: "24 sold",
+        url: "https://ko-fi.com/s/a9d9b4bdb5",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/2e873a98-25e9-4b02-8c3e-15978dd2f802_aryamodprivatedrive,small.png"
+      },
+      {
+        name: "Harmony Hub",
+        tag: "4 items + matching icon theme",
+        sold: "6 sold",
+        url: "https://ko-fi.com/s/7bd7c120e0",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/7b4cf8b8-7b14-4bc5-a4ec-327e56bfe118_harmonyhub.png"
+      },
+      {
+        name: "Smart",
+        tag: "Widget pack + icon theme",
+        sold: "2 sold",
+        url: "https://ko-fi.com/s/4d24c97115",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/ceca7b1e-39b9-4e3b-9df5-c532fd25f284_.png"
+      },
+      {
+        name: "Carbon",
+        tag: "5 widgets: 1 large, 2 med, 2 small",
+        sold: "51 sold",
+        url: "https://ko-fi.com/s/17e9b8329b",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/a4815d2f-1b6e-41ee-88cc-d1a7001c3be4_carbonwidgypack-3.png"
+      },
+      {
+        name: "Sleek",
+        tag: "2 large widgets, auto-update",
+        sold: "59 sold",
+        url: "https://ko-fi.com/s/1d81c96ffd",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/6d8657b9-101c-41a2-ab83-1fa5ec5d4cce_sleek.png"
+      },
+      {
+        name: "Nugget",
+        tag: "Weather + agenda, auto-update",
+        sold: "23 sold",
+        url: "https://ko-fi.com/s/58efd26107",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/863c3839-87b7-429a-bb64-8a6945c2290d_nugget.png"
+      },
+      {
+        name: "K23 HTC",
+        tag: "Retro HTC-style widgets",
+        sold: "86 sold",
+        url: "https://ko-fi.com/s/28d6f4c152",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/457d73fa-c0f2-40af-9cb2-c53f5c08e90b_thumb.png"
+      },
+      {
+        name: "K26",
+        tag: "Hourly/daily, auto-update",
+        sold: "30 sold",
+        url: "https://ko-fi.com/s/25426fca5d",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/55b2b624-e4c8-48ea-ba1e-244e390eb150_mockup.png"
+      },
+      {
+        name: "Astral",
+        tag: "Weather widget, auto-update",
+        sold: "31 sold",
+        url: "https://ko-fi.com/s/0fe4567e87",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/4bd1d2cc-057e-41fb-8454-7311abe9c8af_astral.png"
+      },
+      {
+        name: "Vision Pro",
+        tag: "4 widgets, auto-update",
+        sold: "97 sold",
+        url: "https://ko-fi.com/s/ddca284132",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/9040ddc5-5dd5-4224-9d4f-ba5f0180999d_visionpro.png"
+      },
+      {
+        name: "Poncho",
+        tag: "4 weather widgets",
+        sold: "14 sold",
+        url: "https://ko-fi.com/s/232c12fc68",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/a4e2dfc5-682a-4cbf-916f-dbaaec40fa0f_img_7378.png"
+      },
+      {
+        name: "BLVCK",
+        tag: "6 widgets, auto-update",
+        sold: "27 sold",
+        url: "https://ko-fi.com/s/efa8a40e8b",
+        img: "https://storage.ko-fi.com/cdn/useruploads/display/794a5ceb-3f38-41d0-ad09-307853c19e3f_blvck.png"
+      }
+    ];
+
+    function cardHTML(item, hidden){
+      return `
+        <a class="shop-card" href="${item.url}" target="_blank" rel="noopener noreferrer"${hidden ? ' aria-hidden="true" tabindex="-1"' : ''}>
+          <img class="shop-thumb" src="${item.img}" alt="${hidden ? '' : item.name + ' preview'}" loading="lazy">
+          <span class="shop-info">
+            <span class="shop-name">${item.name}</span>
+            <span class="shop-tag">${item.tag}</span>
+            <span class="shop-sold">${item.sold}</span>
+          </span>
+        </a>`;
+    }
+
+    const track = document.getElementById('shop-track');
+    if(track){
+      const original = shopItems.map(item => cardHTML(item, false)).join('');
+      const duplicate = shopItems.map(item => cardHTML(item, true)).join('');
+      track.innerHTML = original + duplicate;
+    }
+  </script>
 </body>
 </html>
