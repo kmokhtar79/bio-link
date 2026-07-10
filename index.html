@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamran Mokhtar — Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0E1013;
+    --surface: #16191E;
+    --surface-hover: #1D2129;
+    --border: #2A2F38;
+    --text: #F1EFEA;
+    --muted: #868C96;
+    --amber: #E7A94C;
+    --teal: #5FD3C4;
+    --grid-dot: rgba(241,239,234,0.06);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+  }
+
+  body{
+    background-image:
+      radial-gradient(var(--grid-dot) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: -5px -5px;
+    display: flex;
+    justify-content: center;
+    padding: 64px 20px 40px;
+  }
+
+  .page{
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ---- avatar ---- */
+  .avatar-wrap{
+    position: relative;
+    width: 108px;
+    height: 108px;
+    margin-bottom: 22px;
+  }
+
+  .avatar{
+    width: 108px;
+    height: 108px;
+    border-radius: 30px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    display: block;
+  }
+
+  .status-tick{
+    position: absolute;
+    bottom: -6px;
+    right: -10px;
+    width: 30px;
+    height: 18px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .status-tick::after{
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 8px var(--teal);
+  }
+
+  /* ---- identity ---- */
+  .name{
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 0 0 6px;
+    text-align: center;
+  }
+
+  .handle{
+    font-size: 13px;
+    color: var(--amber);
+    margin: 0 0 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .tagline{
+    font-size: 12.5px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.7;
+    margin: 0 0 36px;
+    max-width: 300px;
+  }
+
+  .tagline .bracket{ color: var(--teal); }
+
+  /* ---- link list ---- */
+  .links{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .link-card{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  }
+
+  .link-card:hover,
+  .link-card:focus-visible{
+    background: var(--surface-hover);
+    border-color: var(--accent-color, var(--amber));
+    transform: translateY(-1px);
+  }
+
+  .link-card:focus-visible{
+    outline: 2px solid var(--accent-color, var(--amber));
+    outline-offset: 2px;
+  }
+
+  .link-icon{
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+
+  .link-icon svg{
+    width: 18px;
+    height: 18px;
+    stroke: var(--accent-color, var(--amber));
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .link-body{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .link-title{
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .link-sub{
+    font-size: 11.5px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .link-prompt{
+    flex: none;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .link-card[data-key="instagram"]{ --accent-color: #E27D8F; }
+  .link-card[data-key="x"]{ --accent-color: #EDEDED; }
+  .link-card[data-key="kofi"]{ --accent-color: var(--teal); }
+
+  /* ---- footer ---- */
+  .footer{
+    margin-top: 44px;
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .footer .dash{
+    width: 18px;
+    height: 1px;
+    background: var(--border);
+  }
+
+  @media (max-width: 380px){
+    .page{ max-width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .link-card{ transition: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="avatar-wrap">
+      <img class="avatar" src="https://pbs.twimg.com/profile_images/2022664367934939136/H8xkbllu_400x400.jpg" alt="Kamran Mokhtar">
+      <div class="status-tick" aria-hidden="true"></div>
+    </div>
+
+    <h1 class="name">Kamran Mokhtar</h1>
+    <div class="handle">@imodkit.widgys</div>
+    <p class="tagline">passionate widget designer who meticulously merges creativity with functionality <span class="bracket">//</span> keen eye for detail, with functionality always paramount</p>
+
+    <nav class="links" aria-label="Profile links">
+
+      <a class="link-card" data-key="instagram" href="https://www.instagram.com/imodkit.widgys" target="_blank" rel="noopener noreferrer">
+        <span class="link-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"></circle></svg>
+        </span>
+        <span class="link-body">
+          <span class="link-title">Instagram</span>
+          <span class="link-sub">@imodkit.widgys</span>
+        </span>
+        <span class="link-prompt">&gt;&gt;</span>
+      </a>
+
+      <a class="link-card" data-key="x" href="https://x.com/Kmokhtar79" target="_blank" rel="noopener noreferrer">
+        <span class="link-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+        </span>
+        <span class="link-body">
+          <span class="link-title">X</span>
+          <span class="link-sub">@Kmokhtar79</span>
+        </span>
+        <span class="link-prompt">&gt;&gt;</span>
+      </a>
+
+      <a class="link-card" data-key="kofi" href="https://ko-fi.com/S6S2H2VS1/shop" target="_blank" rel="noopener noreferrer">
+        <span class="link-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 9h11a3 3 0 0 1 0 6h-1"></path><path d="M5 9v7a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1"></path><path d="M8 6c0-1 1-1 1-2s-1-1-1-2"></path><path d="M11.5 6c0-1 1-1 1-2s-1-1-1-2"></path></svg>
+        </span>
+        <span class="link-body">
+          <span class="link-title">Ko-fi Shop</span>
+          <span class="link-sub">widget &amp; icon packs</span>
+        </span>
+        <span class="link-prompt">&gt;&gt;</span>
+      </a>
+
+    </nav>
+
+    <div class="footer">
+      <span class="dash"></span>
+      <span>grid: 22px</span>
+      <span class="dash"></span>
+    </div>
+
+  </div>
+</body>
+</html>
