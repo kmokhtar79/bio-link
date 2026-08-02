@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kamran Mokhtar — Links</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg: #0E1013;
@@ -28,7 +25,7 @@
     min-height: 100%;
     background: var(--bg);
     color: var(--text);
-    font-family: 'Space Mono', monospace;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
   }
 
@@ -202,9 +199,13 @@
     color: var(--muted);
   }
 
-  .link-card[data-key="instagram"]{ --accent-color: #E27D8F; }
-  .link-card[data-key="x"]{ --accent-color: #EDEDED; }
-  .link-card[data-key="kofi"]{ --accent-color: var(--teal); }
+  .link-card[data-key="instagram"]{ --accent-color: rgba(255, 255, 255, 0.5); }
+  .link-card[data-key="x"]{ --accent-color: rgba(255, 255, 255, 0.5); }
+  .link-card[data-key="kofi"]{ --accent-color: rgba(255, 255, 255, 0.5); }
+
+  .link-icon svg.brand-logo{
+    stroke: none;
+  }
 
   /* ---- footer ---- */
   /* ---- shop marquee ---- */
@@ -368,7 +369,25 @@
 
       <a class="link-card" data-key="instagram" href="https://www.instagram.com/imodkit.widgys" target="_blank" rel="noopener noreferrer">
         <span class="link-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"></circle></svg>
+          <svg class="brand-logo" width="18" height="18" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g>
+              <radialGradient cx="56.3501" cy="19.2179" gradientTransform="matrix(0.9986 -5.233596e-02 4.448556e-02 0.8488 -36.9742 443.8014)" gradientUnits="userSpaceOnUse" id="igGrad1" r="711.335">
+                <stop offset="0" style="stop-color:#FED576"/>
+                <stop offset="0.2634" style="stop-color:#F47133"/>
+                <stop offset="0.6091" style="stop-color:#BC3081"/>
+                <stop offset="1" style="stop-color:#4C63D2"/>
+              </radialGradient>
+              <path style="fill:url(#igGrad1);stroke:none;" d="M96.1,23.2c-16.2,6.3-29.9,14.7-43.6,28.4C38.8,65.2,30.4,79,24.1,95.1c-6.1,15.6-10.2,33.5-11.4,59.7    c-1.2,26.2-1.5,34.6-1.5,101.4s0.3,75.2,1.5,101.4c1.2,26.2,5.4,44.1,11.4,59.7c6.3,16.2,14.7,29.9,28.4,43.6    c13.7,13.7,27.4,22.1,43.6,28.4c15.6,6.1,33.5,10.2,59.7,11.4c26.2,1.2,34.6,1.5,101.4,1.5c66.8,0,75.2-0.3,101.4-1.5    c26.2-1.2,44.1-5.4,59.7-11.4c16.2-6.3,29.9-14.7,43.6-28.4c13.7-13.7,22.1-27.4,28.4-43.6c6.1-15.6,10.2-33.5,11.4-59.7    c1.2-26.2,1.5-34.6,1.5-101.4s-0.3-75.2-1.5-101.4c-1.2-26.2-5.4-44.1-11.4-59.7C484,79,475.6,65.2,462,51.6    c-13.7-13.7-27.4-22.1-43.6-28.4c-15.6-6.1-33.5-10.2-59.7-11.4c-26.2-1.2-34.6-1.5-101.4-1.5s-75.2,0.3-101.4,1.5    C129.6,12.9,111.7,17.1,96.1,23.2z M356.6,56c24,1.1,37,5.1,45.7,8.5c11.5,4.5,19.7,9.8,28.3,18.4c8.6,8.6,13.9,16.8,18.4,28.3    c3.4,8.7,7.4,21.7,8.5,45.7c1.2,25.9,1.4,33.7,1.4,99.4s-0.3,73.5-1.4,99.4c-1.1,24-5.1,37-8.5,45.7c-4.5,11.5-9.8,19.7-18.4,28.3    c-8.6,8.6-16.8,13.9-28.3,18.4c-8.7,3.4-21.7,7.4-45.7,8.5c-25.9,1.2-33.7,1.4-99.4,1.4s-73.5-0.3-99.4-1.4    c-24-1.1-37-5.1-45.7-8.5c-11.5-4.5-19.7-9.8-28.3-18.4c-8.6-8.6-13.9-16.8-18.4-28.3c-3.4-8.7-7.4-21.7-8.5-45.7    c-1.2-25.9-1.4-33.7-1.4-99.4s0.3-73.5,1.4-99.4c1.1-24,5.1-37,8.5-45.7c4.5-11.5,9.8-19.7,18.4-28.3c8.6-8.6,16.8-13.9,28.3-18.4    c8.7-3.4,21.7-7.4,45.7-8.5c25.9-1.2,33.7-1.4,99.4-1.4S330.7,54.8,356.6,56z"/>
+              <radialGradient cx="154.0732" cy="134.5501" gradientTransform="matrix(0.9986 -5.233596e-02 4.448556e-02 0.8488 -24.3617 253.2946)" gradientUnits="userSpaceOnUse" id="igGrad2" r="365.2801">
+                <stop offset="0" style="stop-color:#FED576"/>
+                <stop offset="0.2634" style="stop-color:#F47133"/>
+                <stop offset="0.6091" style="stop-color:#BC3081"/>
+                <stop offset="1" style="stop-color:#4C63D2"/>
+              </radialGradient>
+              <path style="fill:url(#igGrad2);stroke:none;" d="M130.9,256.3c0,69.8,56.6,126.3,126.3,126.3s126.3-56.6,126.3-126.3S327,130,257.2,130    S130.9,186.5,130.9,256.3z M339.2,256.3c0,45.3-36.7,82-82,82s-82-36.7-82-82c0-45.3,36.7-82,82-82S339.2,211,339.2,256.3z"/>
+              <circle style="fill:#654C9F;stroke:none;" cx="388.6" cy="125" r="29.5"/>
+            </g>
+          </svg>
         </span>
         <span class="link-body">
           <span class="link-title">Instagram</span>
@@ -379,7 +398,9 @@
 
       <a class="link-card" data-key="x" href="https://x.com/Kmokhtar79" target="_blank" rel="noopener noreferrer">
         <span class="link-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+          <svg class="brand-logo" width="16" height="16" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
+            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" style="fill:#ffffff;stroke:none;"/>
+          </svg>
         </span>
         <span class="link-body">
           <span class="link-title">X</span>
@@ -390,7 +411,19 @@
 
       <a class="link-card" data-key="kofi" href="https://ko-fi.com/S6S2H2VS1/shop" target="_blank" rel="noopener noreferrer">
         <span class="link-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M5 9h11a3 3 0 0 1 0 6h-1"></path><path d="M5 9v7a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1"></path><path d="M8 6c0-1 1-1 1-2s-1-1-1-2"></path><path d="M11.5 6c0-1 1-1 1-2s-1-1-1-2"></path></svg>
+          <svg class="brand-logo" width="20" height="16" viewBox="0 0 241 194" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_1_219" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-1" y="0" width="242" height="194">
+              <path d="M240.469 0.958984H-0.00585938V193.918H240.469V0.958984Z" fill="white"/>
+            </mask>
+            <g mask="url(#mask0_1_219)">
+              <path style="fill:#ffffff;stroke:none;" d="M96.1344 193.911C61.1312 193.911 32.6597 178.256 15.9721 149.829C1.19788 124.912 -0.00585938 97.9229 -0.00585938 67.7662C-0.00585938 49.8876 5.37293 34.3215 15.5413 22.7466C24.8861 12.1157 38.1271 5.22907 52.8317 3.35378C70.2858 1.14271 91.9848 0.958984 114.545 0.958984C151.259 0.958984 161.63 1.4088 176.075 2.85328C195.29 4.76026 211.458 11.932 222.824 23.5955C234.368 35.4428 240.469 51.2624 240.469 69.3627V72.9994C240.469 103.885 219.821 129.733 191.046 136.759C188.898 141.827 186.237 146.871 183.089 151.837L183.006 151.964C172.869 167.632 149.042 193.918 103.401 193.918H96.1281L96.1344 193.911Z"/>
+              <path style="fill:#ffffff;stroke:none;" d="M174.568 17.9772C160.927 16.6151 151.38 16.1589 114.552 16.1589C90.908 16.1589 70.9008 16.387 54.7644 18.4334C33.3949 21.164 15.2058 37.5285 15.2058 67.7674C15.2058 98.0066 16.796 121.422 29.0741 142.107C42.9425 165.751 66.1302 178.707 96.1412 178.707H103.414C140.242 178.707 160.25 159.156 170.253 143.698C174.574 136.874 177.754 130.058 179.801 123.234C205.947 120.96 225.27 99.3624 225.27 72.9941V69.3577C225.27 40.9432 206.631 21.164 174.574 17.9772H174.568Z"/>
+              <path style="fill:#202020;stroke:none;" d="M15.1975 67.7674C15.1975 37.5285 33.3866 21.164 54.7559 18.4334C70.8987 16.387 90.906 16.1589 114.544 16.1589C151.372 16.1589 160.919 16.6151 174.559 17.9772C206.617 21.1576 225.255 40.937 225.255 69.3577V72.9941C225.255 99.3687 205.932 120.966 179.786 123.234C177.74 130.058 174.559 136.874 170.238 143.698C160.235 159.156 140.228 178.707 103.4 178.707H96.1264C66.1155 178.707 42.9277 165.751 29.0595 142.107C16.7814 121.422 15.1912 98.4563 15.1912 67.7674"/>
+              <path style="fill:#ffffff;stroke:none;" d="M32.2469 67.9899C32.2469 97.3168 34.0654 116.184 43.6127 133.689C54.5225 153.924 74.3018 161.653 96.8117 161.653H103.857C133.411 161.653 147.736 147.329 155.693 134.829C159.558 128.462 162.966 121.417 164.784 112.547L166.147 106.864H174.332C192.521 106.864 208.208 92.09 208.208 73.2166V69.8082C208.208 48.6669 195.024 37.5228 172.058 34.7987C159.102 33.6646 151.372 33.2084 114.538 33.2084C89.7602 33.2084 72.0272 33.4364 58.6152 35.4828C39.7483 38.2134 32.2407 48.8951 32.2407 67.9899"/>
+              <path style="fill:#202020;stroke:none;" d="M166.158 83.6801C166.158 86.4107 168.204 88.4572 171.841 88.4572C183.435 88.4572 189.802 81.8619 189.802 70.9523C189.802 60.0427 183.435 53.2195 171.841 53.2195C168.204 53.2195 166.158 55.2657 166.158 57.9963V83.6866V83.6801Z"/>
+              <path style="fill:#FF5A16;stroke:none;" d="M54.5321 82.3198C54.5321 95.732 62.0332 107.326 71.5807 116.424C77.9478 122.562 87.9515 128.93 94.7685 133.022C96.8147 134.157 98.8611 134.841 101.136 134.841C103.866 134.841 106.134 134.157 107.959 133.022C114.782 128.93 124.779 122.562 130.919 116.424C140.694 107.332 148.195 95.7383 148.195 82.3198C148.195 67.7673 137.286 54.8115 121.599 54.8115C112.28 54.8115 105.912 59.5882 101.136 66.1772C96.8147 59.582 90.2259 54.8115 80.9001 54.8115C64.9855 54.8115 54.5256 67.7673 54.5256 82.3198"/>
+            </g>
+          </svg>
         </span>
         <span class="link-body">
           <span class="link-title">Ko-fi Shop</span>
