@@ -2,714 +2,448 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kamran Mokhtar — Links</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Kamran Mokhtar · @imodkit.widgys — iModKit</title>
+<meta name="description" content="Passionate widget designer who meticulously merges creativity with functionality — keen eye for detail, with functionality always paramount">
+<meta name="theme-color" content="#050507">
+
+<!-- Favicon: Ko-fi-hosted icon -->
 <link rel="icon" type="image/png" href="https://storage.ko-fi.com/cdn/useruploads/e60fcf62-f5c5-4f0f-aee0-539084680c28_1c6b083e-ebfa-4d7c-b0a3-00745df5b2d0.png">
+<link rel="apple-touch-icon" href="https://storage.ko-fi.com/cdn/useruploads/e60fcf62-f5c5-4f0f-aee0-539084680c28_1c6b083e-ebfa-4d7c-b0a3-00745df5b2d0.png">
+
+<!-- Social preview -->
+<meta property="og:title" content="Kamran Mokhtar · @imodkit.widgys">
+<meta property="og:description" content="Widget & icon packs for iOS Widgy — functionality always paramount.">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://storage.ko-fi.com/cdn/useruploads/e60fcf62-f5c5-4f0f-aee0-539084680c28_1c6b083e-ebfa-4d7c-b0a3-00745df5b2d0.png">
+<meta name="twitter:card" content="summary">
+
 <style>
-  :root{
-    --bg: #0E1013;
-    --surface: #16191E;
-    --surface-hover: #1D2129;
-    --border: #2A2F38;
-    --text: #F1EFEA;
-    --muted: #868C96;
-    --amber: #E7A94C;
-    --teal: #5FD3C4;
-    --grid-dot: rgba(241,239,234,0.06);
-  }
+/* ============ iModKit bio-link — dark, widget/launcher-inspired ============ */
+:root{
+  --bg:#050507;
+  --glass:rgba(255,255,255,.062);
+  --glass-brd:rgba(255,255,255,.11);
+  --txt:#f5f5f7;
+  --sub:rgba(235,235,245,.62);
+  --blue:#0A84FF;
+  --green:#34C759;
+  --r-card:26px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{color-scheme:dark}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);color:var(--txt);
+  min-height:100dvh;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
 
-  *{ box-sizing: border-box; }
+/* ---------- ambient launcher backdrop ---------- */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(95px);opacity:.42;will-change:transform}
+.blob.b1{width:46vmax;height:46vmax;left:-16vmax;top:-14vmax;background:radial-gradient(circle,#4f46e5 0%,transparent 65%);animation:drift1 26s ease-in-out infinite alternate}
+.blob.b2{width:40vmax;height:40vmax;right:-14vmax;top:22%;background:radial-gradient(circle,#0a84ff 0%,transparent 65%);animation:drift2 32s ease-in-out infinite alternate}
+.blob.b3{width:38vmax;height:38vmax;left:8%;bottom:-18vmax;background:radial-gradient(circle,#db2777 0%,transparent 65%);animation:drift3 29s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(9vmax,7vmax) scale(1.12)}}
+@keyframes drift2{to{transform:translate(-8vmax,-6vmax) scale(1.08)}}
+@keyframes drift3{to{transform:translate(-7vmax,-9vmax) scale(1.15)}}
+.grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.033) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.033) 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 30%,transparent 78%);
+          mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 30%,transparent 78%);
+}
 
-  html, body{
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-  }
+/* ---------- page ---------- */
+.page{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:clamp(28px,6vw,52px) 20px 40px}
 
-  body{
-    background-image:
-      radial-gradient(var(--grid-dot) 1px, transparent 1px);
-    background-size: 22px 22px;
-    background-position: -5px -5px;
-    display: flex;
-    justify-content: center;
-    padding: 64px 20px 40px;
-  }
+/* decorative floating widgets */
+.decor{position:absolute;inset:0;pointer-events:none;z-index:-1}
+.wg{position:absolute;display:flex;align-items:center;gap:8px;padding:11px 14px;border-radius:22px;
+  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);
+  box-shadow:0 18px 44px rgba(0,0,0,.42);font-size:12.5px;color:var(--sub);letter-spacing:-.01em;white-space:nowrap}
+.wg b{color:var(--txt);font-weight:600;font-variant-numeric:tabular-nums}
+.wg.w1{top:6px;left:-8px;transform:rotate(-7deg)}
+.wg.w2{top:118px;right:-14px;transform:rotate(6deg)}
+.wg.w3{bottom:-26px;left:-18px;transform:rotate(-5deg)}
+@media(max-width:560px){.wg.w1{left:-26px}.wg.w2{right:-30px}.wg.w3{display:none}}
 
-  .page{
-    width: 100%;
-    max-width: 420px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+/* ---------- profile ---------- */
+.hero{text-align:center;padding-top:26px;margin-bottom:34px;animation:rise .7s .05s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
-  /* ---- avatar ---- */
-  .avatar-wrap{
-    position: relative;
-    width: 108px;
-    height: 108px;
-    margin-bottom: 22px;
-  }
+.avatar{position:relative;width:116px;height:116px;margin:0 auto 18px}
+.avatar-clip{width:100%;height:100%;border-radius:27%; /* JS upgrades to true squircle */
+  box-shadow:0 0 0 1px rgba(255,255,255,.14),0 0 0 4.5px rgba(255,255,255,.055),0 22px 50px rgba(0,0,0,.55);
+  overflow:hidden;background:#15151a}
+.avatar-clip img{display:block;width:100%;height:100%;object-fit:cover}
+.tick{position:absolute;right:-3px;bottom:-3px;width:29px;height:29px;border-radius:50%;
+  background:var(--green);border:3.5px solid var(--bg);
+  display:grid;place-items:center;box-shadow:0 4px 14px rgba(52,199,89,.45)}
+.tick::before{content:"";width:8px;height:5px;border-left:2.4px solid #fff;border-bottom:2.4px solid #fff;
+  transform:rotate(-45deg) translate(0,-1px)}
+.tick::after{content:"";position:absolute;inset:-3.5px;border-radius:50%;border:2px solid var(--green);
+  opacity:0;animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.75);opacity:.85}70%,100%{transform:scale(1.55);opacity:0}}
 
-  .avatar{
-    width: 108px;
-    height: 108px;
-    border-radius: 30px;
-    object-fit: cover;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    display: block;
-  }
+.hero h1{font-size:clamp(26px,6vw,31px);font-weight:700;letter-spacing:-.022em}
+.handle{margin-top:5px;font-size:15.5px;font-weight:500;color:var(--blue);letter-spacing:-.01em}
+.bio{margin:15px auto 0;max-width:44ch;font-size:15px;line-height:1.55;color:var(--sub);letter-spacing:-.011em}
 
-  .status-tick{
-    position: absolute;
-    bottom: -6px;
-    right: -10px;
-    width: 30px;
-    height: 18px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* ---------- link cards ---------- */
+.links{display:flex;flex-direction:column;gap:13px;margin-bottom:38px}
+.link-card{position:relative;display:flex;align-items:center;gap:14px;padding:15px 16px;
+  border-radius:var(--r-card);text-decoration:none;color:inherit;isolation:isolate;
+  background:var(--glass);border:1px solid var(--glass-brd);
+  backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
+  box-shadow:0 14px 36px rgba(0,0,0,.35);
+  transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s,border-color .22s;
+  animation:rise .65s cubic-bezier(.2,.7,.2,1) both}
+.link-card:nth-child(1){animation-delay:.10s}.link-card:nth-child(2){animation-delay:.17s}
+.link-card:nth-child(3){animation-delay:.24s}.link-card:nth-child(4){animation-delay:.31s}
+.link-card:hover{transform:translateY(-2px);box-shadow:0 22px 48px rgba(0,0,0,.45);border-color:rgba(255,255,255,.2)}
+.link-card:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px}
+/* white/50% hover + white/20% tap highlight, respecting the card radius */
+.link-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#fff;
+  opacity:0;transition:opacity .16s ease;pointer-events:none;z-index:2}
+.link-card:hover::after{opacity:.5}
+.link-card:active::after{opacity:.2}
 
-  .status-tick::after{
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--teal);
-    box-shadow: 0 0 8px var(--teal);
-  }
+.chip{flex:none;width:46px;height:46px;border-radius:15px;display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.chip svg{width:25px;height:25px;display:block}
+.chip.kofi {background:rgba(255,94,91,.16)}
+.chip.gum  {background:#FF90E8;border-color:rgba(0,0,0,.18)}
+.chip.x    {background:rgba(255,255,255,.09)}
+.chip.ig   {background:rgba(221,42,123,.14)}
 
-  /* ---- identity ---- */
-  .name{
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin: 0 0 6px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
+.lc-meta{min-width:0}
+.lc-name{font-size:16.5px;font-weight:650;letter-spacing:-.015em}
+.lc-sub{margin-top:2px;font-size:13.5px;color:var(--sub);letter-spacing:-.008em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lc-arrow{margin-left:auto;flex:none;color:rgba(235,235,245,.4);transition:transform .22s,color .22s}
+.link-card:hover .lc-arrow{transform:translate(2px,-2px);color:#fff}
+.lc-arrow svg{width:17px;height:17px;display:block}
 
-  .name-logo{
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-    border-radius: 6px;
-    flex: none;
-  }
+/* ---------- shop carousel ---------- */
+.shop-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:14px;animation:rise .65s .34s both}
+.shop-head h2{font-size:19px;font-weight:700;letter-spacing:-.02em}
+.shop-head a{font-size:13.5px;font-weight:550;color:var(--blue);text-decoration:none;letter-spacing:-.01em}
+.shop-head a:hover{text-decoration:underline}
 
-  .handle{
-    font-size: 13px;
-    color: var(--amber);
-    margin: 0 0 12px;
-    letter-spacing: 0.5px;
-  }
+.car{position:relative;overflow:hidden;padding:6px 20px 10px;margin:0 -20px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 26px,#000 calc(100% - 26px),transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 26px,#000 calc(100% - 26px),transparent);
+  cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.car.dragging{cursor:grabbing}
+.car-track{display:flex;will-change:transform;width:max-content}
+.set{display:flex;gap:12px;padding-right:12px;flex:none}
 
-  .tagline{
-    font-size: 12.5px;
-    color: var(--muted);
-    text-align: center;
-    line-height: 1.7;
-    margin: 0 0 36px;
-    max-width: 300px;
-  }
+.prod{flex:none;width:152px;text-decoration:none;color:inherit;border-radius:20px;padding:8px;
+  transition:background .2s,transform .2s}
+.prod:hover{background:rgba(255,255,255,.055)}
+.prod:active{background:rgba(255,255,255,.115);transform:scale(.97)}
+.prod:focus-visible{outline:2.5px solid var(--blue);outline-offset:2px}
+.prod-thumb{width:136px;height:136px;border-radius:17px;overflow:hidden;background:#141419;
+  border:1px solid rgba(255,255,255,.09);box-shadow:0 10px 26px rgba(0,0,0,.4)}
+.prod-thumb img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.prod-name{margin-top:8px;font-size:13px;font-weight:600;letter-spacing:-.012em;line-height:1.3;
+  height:2.6em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pchips{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}
+.pchip{font-size:10.5px;font-weight:600;letter-spacing:.01em;padding:3px 8px;border-radius:999px;
+  background:rgba(255,255,255,.085);color:var(--sub);font-variant-numeric:tabular-nums}
+.pchip.price{background:rgba(10,132,255,.16);color:#7cc0ff}
+.hint{text-align:center;font-size:11.5px;color:rgba(235,235,245,.34);margin-top:2px;letter-spacing:.02em}
 
-  .tagline .bracket{ color: var(--teal); }
+footer{margin-top:44px;text-align:center;font-size:12.5px;color:rgba(235,235,245,.38);letter-spacing:-.005em;line-height:1.7}
+footer a{color:rgba(235,235,245,.55);text-decoration:none}
+footer a:hover{color:#fff}
 
-  /* ---- link list ---- */
-  .links{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .link-card{
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    width: 100%;
-    padding: 16px 18px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    text-decoration: none;
-    color: var(--text);
-    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .link-card:active{
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  .link-card:hover,
-  .link-card:focus-visible{
-    background: var(--surface-hover);
-    border-color: var(--accent-color, var(--amber));
-    transform: translateY(-1px);
-  }
-
-  .link-card:focus-visible{
-    outline: 2px solid var(--accent-color, var(--amber));
-    outline-offset: 2px;
-  }
-
-  .link-icon{
-    flex: none;
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg);
-    border: 1px solid var(--border);
-  }
-
-  .link-icon svg{
-    width: 18px;
-    height: 18px;
-    stroke: var(--accent-color, var(--amber));
-    fill: none;
-    stroke-width: 1.6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .link-body{
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .link-title{
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-  }
-
-  .link-sub{
-    font-size: 11.5px;
-    color: var(--muted);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .link-prompt{
-    flex: none;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .link-card[data-key="instagram"]{ --accent-color: rgba(255, 255, 255, 0.5); }
-  .link-card[data-key="x"]{ --accent-color: rgba(255, 255, 255, 0.5); }
-  .link-card[data-key="kofi"]{ --accent-color: rgba(255, 255, 255, 0.5); }
-  .link-card[data-key="gumroad"]{ --accent-color: rgba(255, 255, 255, 0.5); }
-
-  .link-icon svg.brand-logo{
-    stroke: none;
-  }
-
-  /* ---- footer ---- */
-  /* ---- shop marquee ---- */
-  .shop-section{
-    width: 100%;
-    max-width: 420px;
-    margin-top: 44px;
-  }
-
-  .shop-label{
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-
-  .shop-label::after{
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .marquee{
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
-    cursor: grab;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
-  }
-
-  .marquee::-webkit-scrollbar{
-    display: none;
-  }
-
-  .marquee.dragging{
-    cursor: grabbing;
-    scroll-behavior: auto;
-  }
-
-  .marquee-track{
-    display: flex;
-    gap: 14px;
-    width: max-content;
-    padding: 2px 40px 10px;
-  }
-
-  .shop-card{
-    flex: none;
-    width: 168px;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: var(--text);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    transition: border-color 0.15s ease, transform 0.15s ease;
-  }
-
-  .shop-card:hover,
-  .shop-card:focus-visible{
-    border-color: var(--teal);
-    transform: translateY(-2px);
-  }
-
-  .shop-card:focus-visible{
-    outline: 2px solid var(--teal);
-    outline-offset: 2px;
-  }
-
-  .shop-thumb{
-    width: 100%;
-    height: 112px;
-    object-fit: cover;
-    display: block;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .shop-info{
-    padding: 10px 12px 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .shop-name{
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-  }
-
-  .shop-tag{
-    font-size: 10.5px;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-
-  .shop-sold{
-    font-size: 10px;
-    color: var(--amber);
-    margin-top: 2px;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .marquee{ scroll-behavior: auto; }
-  }
-
-  .footer{
-    margin-top: 44px;
-    font-size: 11px;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    letter-spacing: 0.5px;
-  }
-
-  .footer .dash{
-    width: 18px;
-    height: 1px;
-    background: var(--border);
-  }
-
-  @media (max-width: 380px){
-    .page{ max-width: 100%; }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .link-card{ transition: none; }
-  }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
 </style>
 </head>
 <body>
-  <div class="page">
 
-    <div class="avatar-wrap">
-      <img class="avatar" src="https://pbs.twimg.com/profile_images/2022664367934939136/H8xkbllu_400x400.jpg" alt="Kamran Mokhtar">
-      <div class="status-tick" aria-hidden="true"></div>
-    </div>
+<div class="bg" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="grid"></div>
+</div>
 
-    <h1 class="name">Kamran Mokhtar</h1>
-    <div class="handle">@imodkit.widgys</div>
-    <p class="tagline">passionate widget designer who meticulously merges creativity with functionality <span class="bracket">//</span> keen eye for detail, with functionality always paramount</p>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><clipPath id="squircle" clipPathUnits="objectBoundingBox"><path id="sqPath"/></clipPath></defs>
+</svg>
 
-    <nav class="links" aria-label="Profile links">
+<main class="page">
 
-      <a class="link-card" data-key="kofi" href="https://ko-fi.com/S6S2H2VS1/shop" target="_blank" rel="noopener noreferrer">
-        <span class="link-icon" aria-hidden="true">
-          <svg class="brand-logo" width="20" height="16" viewBox="0 0 241 194" xmlns="http://www.w3.org/2000/svg">
-            <mask id="mask0_1_219" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="-1" y="0" width="242" height="194">
-              <path d="M240.469 0.958984H-0.00585938V193.918H240.469V0.958984Z" fill="white"/>
-            </mask>
-            <g mask="url(#mask0_1_219)">
-              <path style="fill:#ffffff;stroke:none;" d="M96.1344 193.911C61.1312 193.911 32.6597 178.256 15.9721 149.829C1.19788 124.912 -0.00585938 97.9229 -0.00585938 67.7662C-0.00585938 49.8876 5.37293 34.3215 15.5413 22.7466C24.8861 12.1157 38.1271 5.22907 52.8317 3.35378C70.2858 1.14271 91.9848 0.958984 114.545 0.958984C151.259 0.958984 161.63 1.4088 176.075 2.85328C195.29 4.76026 211.458 11.932 222.824 23.5955C234.368 35.4428 240.469 51.2624 240.469 69.3627V72.9994C240.469 103.885 219.821 129.733 191.046 136.759C188.898 141.827 186.237 146.871 183.089 151.837L183.006 151.964C172.869 167.632 149.042 193.918 103.401 193.918H96.1281L96.1344 193.911Z"/>
-              <path style="fill:#ffffff;stroke:none;" d="M174.568 17.9772C160.927 16.6151 151.38 16.1589 114.552 16.1589C90.908 16.1589 70.9008 16.387 54.7644 18.4334C33.3949 21.164 15.2058 37.5285 15.2058 67.7674C15.2058 98.0066 16.796 121.422 29.0741 142.107C42.9425 165.751 66.1302 178.707 96.1412 178.707H103.414C140.242 178.707 160.25 159.156 170.253 143.698C174.574 136.874 177.754 130.058 179.801 123.234C205.947 120.96 225.27 99.3624 225.27 72.9941V69.3577C225.27 40.9432 206.631 21.164 174.574 17.9772H174.568Z"/>
-              <path style="fill:#202020;stroke:none;" d="M15.1975 67.7674C15.1975 37.5285 33.3866 21.164 54.7559 18.4334C70.8987 16.387 90.906 16.1589 114.544 16.1589C151.372 16.1589 160.919 16.6151 174.559 17.9772C206.617 21.1576 225.255 40.937 225.255 69.3577V72.9941C225.255 99.3687 205.932 120.966 179.786 123.234C177.74 130.058 174.559 136.874 170.238 143.698C160.235 159.156 140.228 178.707 103.4 178.707H96.1264C66.1155 178.707 42.9277 165.751 29.0595 142.107C16.7814 121.422 15.1912 98.4563 15.1912 67.7674"/>
-              <path style="fill:#ffffff;stroke:none;" d="M32.2469 67.9899C32.2469 97.3168 34.0654 116.184 43.6127 133.689C54.5225 153.924 74.3018 161.653 96.8117 161.653H103.857C133.411 161.653 147.736 147.329 155.693 134.829C159.558 128.462 162.966 121.417 164.784 112.547L166.147 106.864H174.332C192.521 106.864 208.208 92.09 208.208 73.2166V69.8082C208.208 48.6669 195.024 37.5228 172.058 34.7987C159.102 33.6646 151.372 33.2084 114.538 33.2084C89.7602 33.2084 72.0272 33.4364 58.6152 35.4828C39.7483 38.2134 32.2407 48.8951 32.2407 67.9899"/>
-              <path style="fill:#202020;stroke:none;" d="M166.158 83.6801C166.158 86.4107 168.204 88.4572 171.841 88.4572C183.435 88.4572 189.802 81.8619 189.802 70.9523C189.802 60.0427 183.435 53.2195 171.841 53.2195C168.204 53.2195 166.158 55.2657 166.158 57.9963V83.6866V83.6801Z"/>
-              <path style="fill:#FF5A16;stroke:none;" d="M54.5321 82.3198C54.5321 95.732 62.0332 107.326 71.5807 116.424C77.9478 122.562 87.9515 128.93 94.7685 133.022C96.8147 134.157 98.8611 134.841 101.136 134.841C103.866 134.841 106.134 134.157 107.959 133.022C114.782 128.93 124.779 122.562 130.919 116.424C140.694 107.332 148.195 95.7383 148.195 82.3198C148.195 67.7673 137.286 54.8115 121.599 54.8115C112.28 54.8115 105.912 59.5882 101.136 66.1772C96.8147 59.582 90.2259 54.8115 80.9001 54.8115C64.9855 54.8115 54.5256 67.7673 54.5256 82.3198"/>
-            </g>
-          </svg>
-        </span>
-        <span class="link-body">
-          <span class="link-title">Ko-fi Shop</span>
-          <span class="link-sub">widget &amp; icon packs</span>
-        </span>
-        <span class="link-prompt">&gt;&gt;</span>
-      </a>
-
-      <a class="link-card" data-key="gumroad" href="https://imodkit.gumroad.com/" target="_blank" rel="noopener noreferrer">
-        <span class="link-icon" aria-hidden="true">
-          <img class="brand-logo" width="18" height="18" style="object-fit:contain;" src="https://assets.gumroad.com/images/logo-g.svg" alt="">
-        </span>
-        <span class="link-body">
-          <span class="link-title">Gumroad</span>
-          <span class="link-sub">Widget Gallery</span>
-        </span>
-        <span class="link-prompt">&gt;&gt;</span>
-      </a>
-
-      <a class="link-card" data-key="x" href="https://x.com/Kmokhtar79" target="_blank" rel="noopener noreferrer">
-        <span class="link-icon" aria-hidden="true">
-          <svg class="brand-logo" width="16" height="16" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg">
-            <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" style="fill:#ffffff;stroke:none;"/>
-          </svg>
-        </span>
-        <span class="link-body">
-          <span class="link-title">X</span>
-          <span class="link-sub">@Kmokhtar79</span>
-        </span>
-        <span class="link-prompt">&gt;&gt;</span>
-      </a>
-
-      <a class="link-card" data-key="instagram" href="https://www.instagram.com/imodkit.widgys" target="_blank" rel="noopener noreferrer">
-        <span class="link-icon" aria-hidden="true">
-          <svg class="brand-logo" width="16" height="16" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g>
-              <radialGradient cx="56.3501" cy="19.2179" gradientTransform="matrix(0.9986 -5.233596e-02 4.448556e-02 0.8488 -36.9742 443.8014)" gradientUnits="userSpaceOnUse" id="igGrad1" r="711.335">
-                <stop offset="0" style="stop-color:#FED576"/>
-                <stop offset="0.2634" style="stop-color:#F47133"/>
-                <stop offset="0.6091" style="stop-color:#BC3081"/>
-                <stop offset="1" style="stop-color:#4C63D2"/>
-              </radialGradient>
-              <path style="fill:url(#igGrad1);stroke:none;" d="M96.1,23.2c-16.2,6.3-29.9,14.7-43.6,28.4C38.8,65.2,30.4,79,24.1,95.1c-6.1,15.6-10.2,33.5-11.4,59.7    c-1.2,26.2-1.5,34.6-1.5,101.4s0.3,75.2,1.5,101.4c1.2,26.2,5.4,44.1,11.4,59.7c6.3,16.2,14.7,29.9,28.4,43.6    c13.7,13.7,27.4,22.1,43.6,28.4c15.6,6.1,33.5,10.2,59.7,11.4c26.2,1.2,34.6,1.5,101.4,1.5c66.8,0,75.2-0.3,101.4-1.5    c26.2-1.2,44.1-5.4,59.7-11.4c16.2-6.3,29.9-14.7,43.6-28.4c13.7-13.7,22.1-27.4,28.4-43.6c6.1-15.6,10.2-33.5,11.4-59.7    c1.2-26.2,1.5-34.6,1.5-101.4s-0.3-75.2-1.5-101.4c-1.2-26.2-5.4-44.1-11.4-59.7C484,79,475.6,65.2,462,51.6    c-13.7-13.7-27.4-22.1-43.6-28.4c-15.6-6.1-33.5-10.2-59.7-11.4c-26.2-1.2-34.6-1.5-101.4-1.5s-75.2,0.3-101.4,1.5    C129.6,12.9,111.7,17.1,96.1,23.2z M356.6,56c24,1.1,37,5.1,45.7,8.5c11.5,4.5,19.7,9.8,28.3,18.4c8.6,8.6,13.9,16.8,18.4,28.3    c3.4,8.7,7.4,21.7,8.5,45.7c1.2,25.9,1.4,33.7,1.4,99.4s-0.3,73.5-1.4,99.4c-1.1,24-5.1,37-8.5,45.7c-4.5,11.5-9.8,19.7-18.4,28.3    c-8.6,8.6-16.8,13.9-28.3,18.4c-8.7,3.4-21.7,7.4-45.7,8.5c-25.9,1.2-33.7,1.4-99.4,1.4s-73.5-0.3-99.4-1.4    c-24-1.1-37-5.1-45.7-8.5c-11.5-4.5-19.7-9.8-28.3-18.4c-8.6-8.6-13.9-16.8-18.4-28.3c-3.4-8.7-7.4-21.7-8.5-45.7    c-1.2-25.9-1.4-33.7-1.4-99.4s0.3-73.5,1.4-99.4c1.1-24,5.1-37,8.5-45.7c4.5-11.5,9.8-19.7,18.4-28.3c8.6-8.6,16.8-13.9,28.3-18.4    c8.7-3.4,21.7-7.4,45.7-8.5c25.9-1.2,33.7-1.4,99.4-1.4S330.7,54.8,356.6,56z"/>
-              <radialGradient cx="154.0732" cy="134.5501" gradientTransform="matrix(0.9986 -5.233596e-02 4.448556e-02 0.8488 -24.3617 253.2946)" gradientUnits="userSpaceOnUse" id="igGrad2" r="365.2801">
-                <stop offset="0" style="stop-color:#FED576"/>
-                <stop offset="0.2634" style="stop-color:#F47133"/>
-                <stop offset="0.6091" style="stop-color:#BC3081"/>
-                <stop offset="1" style="stop-color:#4C63D2"/>
-              </radialGradient>
-              <path style="fill:url(#igGrad2);stroke:none;" d="M130.9,256.3c0,69.8,56.6,126.3,126.3,126.3s126.3-56.6,126.3-126.3S327,130,257.2,130    S130.9,186.5,130.9,256.3z M339.2,256.3c0,45.3-36.7,82-82,82s-82-36.7-82-82c0-45.3,36.7-82,82-82S339.2,211,339.2,256.3z"/>
-              <circle style="fill:#654C9F;stroke:none;" cx="388.6" cy="125" r="29.5"/>
-            </g>
-          </svg>
-        </span>
-        <span class="link-body">
-          <span class="link-title">Instagram</span>
-          <span class="link-sub">@imodkit.widgys</span>
-        </span>
-        <span class="link-prompt">&gt;&gt;</span>
-      </a>
-
-    </nav>
-
-    <section class="shop-section" aria-label="Shop items">
-      <div class="shop-label">from the shop</div>
-      <div class="marquee">
-        <div class="marquee-track" id="shop-track">
-          <!-- items injected by JS below, duplicated once for seamless infinite loop -->
-        </div>
-      </div>
-    </section>
-
-    <div class="footer">
-      <span class="dash"></span>
-      <span>grid: 22px</span>
-      <span class="dash"></span>
-    </div>
-
+  <!-- decorative launcher widgets -->
+  <div class="decor" aria-hidden="true">
+    <div class="wg w1">? <b>21°</b>&nbsp;Clear</div>
+    <div class="wg w2"><span id="clockWg"><b>--:--</b></span>&nbsp;· Today</div>
+    <div class="wg w3">?&nbsp;<b>Neon Skyline</b>&nbsp;playing</div>
   </div>
 
-  <script>
-    const shopItems = [
-      {
-        name: "Glacis Widgy Pack",
-        tag: "Glassmorphism weather widgets",
-        sold: "32 sold",
-        url: "https://ko-fi.com/s/bb46651ea0",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/c6e0e4c3-74d2-46f4-89d6-70d5310aa278_gn7g20yuyfykn007qqx0f5hej384.png"
-      },
-      {
-        name: "Glance",
-        tag: "10 small widgets, 3 modes",
-        sold: "7 sold",
-        url: "https://ko-fi.com/s/4f7237e242",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/d4ccf062-a682-4c16-bf06-43df4a10fdf9_glance.png"
-      },
-      {
-        name: "Eighteen",
-        tag: "12 items + wallpaper",
-        sold: "10 sold",
-        url: "https://ko-fi.com/s/577937293c",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/109a9d8c-0810-40fd-a1ae-9d8b4bf5246f_eighteen.png"
-      },
-      {
-        name: "Pi Pi Widgy Pack Vol.8",
-        tag: "16 Widgys for iOS Widgy",
-        sold: "9 sold",
-        url: "https://ko-fi.com/s/8af7d6a70b",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/573f1a93-d286-45b1-b9ab-351f4d70fff0_pipi-home2.png"
-      },
-      {
-        name: "AryaMod's Private Drive",
-        tag: "Weekly exclusive Widgys",
-        sold: "24 sold",
-        url: "https://ko-fi.com/s/a9d9b4bdb5",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/2e873a98-25e9-4b02-8c3e-15978dd2f802_aryamodprivatedrive,small.png"
-      },
-      {
-        name: "Harmony Hub",
-        tag: "4 items + matching icon theme",
-        sold: "6 sold",
-        url: "https://ko-fi.com/s/7bd7c120e0",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/7b4cf8b8-7b14-4bc5-a4ec-327e56bfe118_harmonyhub.png"
-      },
-      {
-        name: "Smart",
-        tag: "Widget pack + icon theme",
-        sold: "2 sold",
-        url: "https://ko-fi.com/s/4d24c97115",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/ceca7b1e-39b9-4e3b-9df5-c532fd25f284_.png"
-      },
-      {
-        name: "Carbon",
-        tag: "5 widgets: 1 large, 2 med, 2 small",
-        sold: "51 sold",
-        url: "https://ko-fi.com/s/17e9b8329b",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/a4815d2f-1b6e-41ee-88cc-d1a7001c3be4_carbonwidgypack-3.png"
-      },
-      {
-        name: "Sleek",
-        tag: "2 large widgets, auto-update",
-        sold: "59 sold",
-        url: "https://ko-fi.com/s/1d81c96ffd",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/6d8657b9-101c-41a2-ab83-1fa5ec5d4cce_sleek.png"
-      },
-      {
-        name: "Nugget",
-        tag: "Weather + agenda, auto-update",
-        sold: "23 sold",
-        url: "https://ko-fi.com/s/58efd26107",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/863c3839-87b7-429a-bb64-8a6945c2290d_nugget.png"
-      },
-      {
-        name: "K23 HTC",
-        tag: "Retro HTC-style widgets",
-        sold: "86 sold",
-        url: "https://ko-fi.com/s/28d6f4c152",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/457d73fa-c0f2-40af-9cb2-c53f5c08e90b_thumb.png"
-      },
-      {
-        name: "K26",
-        tag: "Hourly/daily, auto-update",
-        sold: "30 sold",
-        url: "https://ko-fi.com/s/25426fca5d",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/55b2b624-e4c8-48ea-ba1e-244e390eb150_mockup.png"
-      },
-      {
-        name: "Astral",
-        tag: "Weather widget, auto-update",
-        sold: "31 sold",
-        url: "https://ko-fi.com/s/0fe4567e87",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/4bd1d2cc-057e-41fb-8454-7311abe9c8af_astral.png"
-      },
-      {
-        name: "Vision Pro",
-        tag: "4 widgets, auto-update",
-        sold: "97 sold",
-        url: "https://ko-fi.com/s/ddca284132",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/9040ddc5-5dd5-4224-9d4f-ba5f0180999d_visionpro.png"
-      },
-      {
-        name: "Poncho",
-        tag: "4 weather widgets",
-        sold: "14 sold",
-        url: "https://ko-fi.com/s/232c12fc68",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/a4e2dfc5-682a-4cbf-916f-dbaaec40fa0f_img_7378.png"
-      },
-      {
-        name: "BLVCK",
-        tag: "6 widgets, auto-update",
-        sold: "27 sold",
-        url: "https://ko-fi.com/s/efa8a40e8b",
-        img: "https://storage.ko-fi.com/cdn/useruploads/display/794a5ceb-3f38-41d0-ad09-307853c19e3f_blvck.png"
-      }
-    ];
+  <!-- ================= PROFILE ================= -->
+  <header class="hero">
+    <div class="avatar">
+      <div class="avatar-clip" id="avatarClip">
+        <img src="https://pbs.twimg.com/profile_images/2022664367934939136/H8xkbllu_400x400.jpg"
+             alt="Kamran Mokhtar profile photo" width="116" height="116">
+      </div>
+      <span class="tick" role="img" aria-label="Active"></span>
+    </div>
+    <h1>Kamran Mokhtar</h1>
+    <p class="handle">@imodkit.widgys</p>
+    <p class="bio">Passionate widget designer who meticulously merges creativity with functionality — keen&nbsp;eye for detail, with functionality always paramount</p>
+  </header>
 
-    function cardHTML(item, hidden){
-      return `
-        <a class="shop-card" href="${item.url}" target="_blank" rel="noopener noreferrer"${hidden ? ' aria-hidden="true" tabindex="-1"' : ''}>
-          <img class="shop-thumb" src="${item.img}" alt="${hidden ? '' : item.name + ' preview'}" loading="lazy">
-          <span class="shop-info">
-            <span class="shop-name">${item.name}</span>
-            <span class="shop-tag">${item.tag}</span>
-            <span class="shop-sold">${item.sold}</span>
-          </span>
-        </a>`;
-    }
+  <!-- ================= LINK CARDS ================= -->
+  <nav class="links" aria-label="Links">
 
-    const track = document.getElementById('shop-track');
-    const marquee = document.querySelector('.marquee');
+    <a class="link-card" href="https://ko-fi.com/S6S2H2VS1/shop" target="_blank" rel="noopener noreferrer">
+      <span class="chip kofi" aria-hidden="true">
+        <!-- Ko-fi cup -->
+        <svg viewBox="0 0 24 24"><path fill="#FF5E5B" d="M3.2 5.5h12.6a1.2 1.2 0 0 1 1.2 1.2v8.6a4.2 4.2 0 0 1-4.2 4.2H6.2a4.2 4.2 0 0 1-4.2-4.2V6.7a1.2 1.2 0 0 1 1.2-1.2z"/><path fill="none" stroke="#FF5E5B" stroke-width="1.9" stroke-linecap="round" d="M17.6 8.6h1.3a2.7 2.7 0 1 1 0 5.4h-1.5"/><path fill="#fff" d="M9.6 16.4 6.7 13.5a2.15 2.15 0 1 1 2.9-3.16 2.15 2.15 0 1 1 2.9 3.16z"/></svg>
+      </span>
+      <span class="lc-meta"><span class="lc-name">Ko-fi Shop</span><br><span class="lc-sub">widget &amp; icon packs</span></span>
+      <span class="lc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
 
-    if(track && marquee){
-      // Render three copies so the user can drag/scroll backward or forward
-      // and the loop always has content on both sides to wrap into.
-      const real = shopItems.map(item => cardHTML(item, false)).join('');
-      const ghost = shopItems.map(item => cardHTML(item, true)).join('');
-      track.innerHTML = ghost + real + ghost;
+    <a class="link-card" href="https://imodkit.gumroad.com/" target="_blank" rel="noopener noreferrer">
+      <span class="chip gum" aria-hidden="true">
+        <!-- Gumroad mark -->
+        <svg viewBox="0 0 24 24"><text x="12" y="18.2" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="800" fill="#000">G</text></svg>
+      </span>
+      <span class="lc-meta"><span class="lc-name">Gumroad</span><br><span class="lc-sub">Widget Gallery</span></span>
+      <span class="lc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
 
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    <a class="link-card" href="https://x.com/Kmokhtar79" target="_blank" rel="noopener noreferrer">
+      <span class="chip x" aria-hidden="true">
+        <!-- X logo -->
+        <svg viewBox="0 0 24 24"><path fill="#fff" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+      </span>
+      <span class="lc-meta"><span class="lc-name">X</span><br><span class="lc-sub">@Kmokhtar79</span></span>
+      <span class="lc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
 
-      let setWidth = 0;
-      let autoScroll = !prefersReducedMotion;
-      let resumeTimer = null;
-      let isDragging = false;
-      let dragStartX = 0;
-      let dragStartScroll = 0;
-      let rafId = null;
-      const speed = 0.5; // px per frame
+    <a class="link-card" href="https://www.instagram.com/imodkit.widgys" target="_blank" rel="noopener noreferrer">
+      <span class="chip ig" aria-hidden="true">
+        <!-- Instagram glyph, brand gradient -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#FEDA75"/><stop offset=".28" stop-color="#F58529"/>
+            <stop offset=".55" stop-color="#DD2A7B"/><stop offset=".8" stop-color="#8134AF"/>
+            <stop offset="1" stop-color="#515BD4"/></linearGradient></defs>
+          <rect x="3" y="3" width="18" height="18" rx="5.2" stroke="url(#igg)" stroke-width="1.9"/>
+          <circle cx="12" cy="12" r="4.1" stroke="url(#igg)" stroke-width="1.9"/>
+          <circle cx="17.2" cy="6.8" r="1.25" fill="url(#igg)"/>
+        </svg>
+      </span>
+      <span class="lc-meta"><span class="lc-name">Instagram</span><br><span class="lc-sub">@imodkit.widgys</span></span>
+      <span class="lc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
 
-      function measure(){
-        setWidth = track.scrollWidth / 3;
-      }
+  </nav>
 
-      function wrapIfNeeded(){
-        if(setWidth <= 0) return;
-        if(marquee.scrollLeft >= setWidth * 2){
-          marquee.scrollLeft -= setWidth;
-        } else if(marquee.scrollLeft <= 0){
-          marquee.scrollLeft += setWidth;
-        }
-      }
+  <!-- ================= SHOP CAROUSEL ================= -->
+  <section aria-label="Ko-fi shop">
+    <div class="shop-head">
+      <h2>From the Widget Shop</h2>
+      <a href="https://ko-fi.com/S6S2H2VS1/shop" target="_blank" rel="noopener noreferrer">Visit shop ?</a>
+    </div>
+    <div class="car" id="car" tabindex="0" role="region" aria-label="Shop products — auto-scrolling carousel, drag or scroll">
+      <div class="car-track" id="carTrack"></div>
+    </div>
+    <p class="hint">drag&nbsp;·&nbsp;scroll&nbsp;·&nbsp;tap&nbsp;a&nbsp;pack&nbsp;to&nbsp;open&nbsp;it&nbsp;on&nbsp;Ko-fi</p>
+  </section>
 
-      function pauseAuto(){
-        autoScroll = false;
-        if(resumeTimer) clearTimeout(resumeTimer);
-      }
+  <footer>
+    Widgets crafted for <b>iOS&nbsp;Widgy</b><br>
+    <a href="https://ko-fi.com/imodkit" target="_blank" rel="noopener noreferrer">ko-fi.com/imodkit</a> ·
+    <a href="https://imodkit.gumroad.com/" target="_blank" rel="noopener noreferrer">imodkit.gumroad.com</a>
+  </footer>
 
-      function scheduleResume(delay){
-        if(resumeTimer) clearTimeout(resumeTimer);
-        if(prefersReducedMotion) return;
-        resumeTimer = setTimeout(() => { autoScroll = true; }, delay || 2000);
-      }
+</main>
 
-      function tick(){
-        if(autoScroll && !isDragging){
-          marquee.scrollLeft += speed;
-          wrapIfNeeded();
-        }
-        rafId = requestAnimationFrame(tick);
-      }
+<script>
+"use strict";
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      // Mouse drag support (touch scrolling works natively via overflow-x)
-      marquee.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        marquee.classList.add('dragging');
-        dragStartX = e.pageX;
-        dragStartScroll = marquee.scrollLeft;
-        pauseAuto();
-      });
+/* ---------- true squircle for the avatar frame (superellipse, n˜4.6) ---------- */
+(function(){
+  const n = 4.6, N = 30, pts = [];
+  const f = c => Math.sign(c) * Math.pow(Math.abs(c), 2 / n);
+  for (let i = 0; i <= N; i++){                       // quarter arc, angle 0?90°
+    const t = (i / N) * Math.PI / 2;
+    pts.push([f(Math.cos(t)), f(Math.sin(t))]);       // x:1?0 , y:0?1
+  }
+  const q = [[ 1, 1],[ -1, 1],[-1,-1],[ 1,-1]];       // quadrant mirrors
+  let d = "";
+  q.forEach(([sx,sy], qi) => {
+    const seg = qi === 0 ? pts : pts.slice().reverse();
+    seg.forEach(([x,y], i) => {
+      const X = (0.5 + sx * x * 0.5).toFixed(4), Y = (0.5 + sy * y * 0.5).toFixed(4);
+      d += (qi===0 && i===0 ? "M" : "L") + X + "," + Y;
+    });
+  });
+  document.getElementById("sqPath").setAttribute("d", d + "Z");
+  document.getElementById("avatarClip").style.clipPath = "url(#squircle)";
+  document.getElementById("avatarClip").style.borderRadius = "0";
+})();
 
-      window.addEventListener('mousemove', (e) => {
-        if(!isDragging) return;
-        e.preventDefault();
-        const delta = e.pageX - dragStartX;
-        marquee.scrollLeft = dragStartScroll - delta;
-      });
+/* ---------- live clock widget ---------- */
+(function(){
+  const el = document.getElementById("clockWg");
+  function tick(){
+    const d = new Date();
+    el.innerHTML = "<b>" + String(d.getHours()).padStart(2,"0") + ":" +
+                   String(d.getMinutes()).padStart(2,"0") + "</b>";
+  }
+  tick(); setInterval(tick, 15000);
+})();
 
-      window.addEventListener('mouseup', () => {
-        if(!isDragging) return;
-        isDragging = false;
-        marquee.classList.remove('dragging');
-        scheduleResume(2000);
-      });
+/* ---------- shop data — 16 real products, live from ko-fi.com/imodkit/shop ----------
+   images + sold counts fetched from Ko-fi (storage.ko-fi.com CDN), Aug 2026            */
+const PRODUCTS = [
+ {n:"Glacis Widgy Pack",           sold:32, price:"$5+", img:"https://storage.ko-fi.com/cdn/useruploads/post/c6e0e4c3-74d2-46f4-89d6-70d5310aa278_gn7g20yuyfykn007qqx0f5hej384.png",              u:"https://ko-fi.com/s/bb46651ea0"},
+ {n:"Glance",                      sold:7,  price:"$5",  img:"https://storage.ko-fi.com/cdn/useruploads/post/d4ccf062-a682-4c16-bf06-43df4a10fdf9_glance.png",                                                 u:"https://ko-fi.com/s/4f7237e242"},
+ {n:"Eighteen",                    sold:10, price:"$6",  img:"https://storage.ko-fi.com/cdn/useruploads/post/109a9d8c-0810-40fd-a1ae-9d8b4bf5246f_eighteen.png",                                               u:"https://ko-fi.com/s/577937293c"},
+ {n:"Pi Pi Widgy Pack Vol.8",      sold:9,  price:"$5+", img:"https://storage.ko-fi.com/cdn/useruploads/post/573f1a93-d286-45b1-b9ab-351f4d70fff0_pipi-home2.png",                                             u:"https://ko-fi.com/s/8af7d6a70b"},
+ {n:"AryaMod\u2019s Private Drive",sold:24, price:"$5",  img:"https://storage.ko-fi.com/cdn/useruploads/post/2e873a98-25e9-4b02-8c3e-15978dd2f802_aryamodprivatedrive,small.png",                              u:"https://ko-fi.com/s/a9d9b4bdb5"},
+ {n:"Harmony Hub",                 sold:6,  price:"$4+", img:"https://storage.ko-fi.com/cdn/useruploads/post/7b4cf8b8-7b14-4bc5-a4ec-327e56bfe118_harmonyhub.png",                                             u:"https://ko-fi.com/s/7bd7c120e0"},
+ {n:"Smart",                       sold:2,  price:"$6+", img:"https://storage.ko-fi.com/cdn/useruploads/post/ceca7b1e-39b9-4e3b-9df5-c532fd25f284_.png",                                                       u:"https://ko-fi.com/s/4d24c97115"},
+ {n:"Carbon",                      sold:51, price:"$5+", img:"https://storage.ko-fi.com/cdn/useruploads/post/a4815d2f-1b6e-41ee-88cc-d1a7001c3be4_carbonwidgypack-3.png",                                      u:"https://ko-fi.com/s/17e9b8329b"},
+ {n:"Sleek",                       sold:51, price:"$3",  img:"https://storage.ko-fi.com/cdn/useruploads/display/c9017ab4-9f00-4fc5-8ecd-f028737f1f78_img_2174.png",                                            u:"https://ko-fi.com/s/1d81c96ffd"},
+ {n:"Nugget",                      sold:21, price:"$5",  img:"https://storage.ko-fi.com/cdn/useruploads/display/a91394fe-ec4d-43fa-bc49-8719df1f021f_showcase.png",                                            u:"https://ko-fi.com/s/58efd26107"},
+ {n:"K23 HTC",                     sold:58, price:"$3",  img:"https://storage.ko-fi.com/cdn/useruploads/display/457d73fa-c0f2-40af-9cb2-c53f5c08e90b_thumb.png",                                               u:"https://ko-fi.com/s/28d6f4c152"},
+ {n:"K26",                         sold:29, price:"$3",  img:"https://storage.ko-fi.com/cdn/useruploads/display/55b2b624-e4c8-48ea-ba1e-244e390eb150_mockup.png",                                              u:"https://ko-fi.com/s/25426fca5d"},
+ {n:"Astral",                      sold:28, price:"$5",  img:"https://storage.ko-fi.com/cdn/useruploads/display/502d9305-dc8c-455f-bdb5-77297f273ad2_img_4882.jpeg",                                           u:"https://ko-fi.com/s/0fe4567e87"},
+ {n:"Vision Pro",                  sold:90, price:"$4",  img:"https://storage.ko-fi.com/cdn/useruploads/display/f56f3400-61d1-47db-8626-8d4779377a5d_img_8811.png",                                            u:"https://ko-fi.com/s/ddca284132"},
+ {n:"Poncho",                      sold:null, price:null, img:"https://storage.ko-fi.com/cdn/useruploads/post/a4e2dfc5-682a-4cbf-916f-dbaaec40fa0f_img_7378.png",                                              u:"https://ko-fi.com/s/232c12fc68"},
+ {n:"BLVCK",                       sold:24, price:"$5",  img:"https://storage.ko-fi.com/cdn/useruploads/display/f4d37b37-34e0-478e-8d68-2722d7f9cef5_thumb.png",                                               u:"https://ko-fi.com/s/efa8a40e8b"}
+];
 
-      // Touch: let native scrolling happen, just pause/resume around it
-      marquee.addEventListener('touchstart', pauseAuto, { passive: true });
-      marquee.addEventListener('touchend', () => scheduleResume(2000), { passive: true });
+/* ---------- build the track ---------- */
+const car   = document.getElementById("car");
+const track = document.getElementById("carTrack");
 
-      // Wheel: allow vertical wheel to scroll the strip horizontally
-      marquee.addEventListener('wheel', (e) => {
-        if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
-          e.preventDefault();
-          marquee.scrollLeft += e.deltaY;
-        }
-        pauseAuto();
-        scheduleResume(2000);
-      }, { passive: false });
+function cardHTML(p, eager){
+  const chips =
+    (p.price ? `<span class="pchip price">${p.price}</span>` : "") +
+    (p.sold != null ? `<span class="pchip">${p.sold} sold</span>` : "");
+  return `<a class="prod" href="${p.u}" target="_blank" rel="noopener noreferrer" draggable="false">
+    <div class="prod-thumb"><img src="${p.img}" alt="${p.n} — Ko-fi shop preview"
+         ${eager ? 'loading="eager"' : 'loading="lazy"'} decoding="async" draggable="false"></div>
+    <div class="prod-name">${p.n}</div>
+    <div class="pchips">${chips || '<span class="pchip">Ko-fi</span>'}</div></a>`;
+}
 
-      marquee.addEventListener('scroll', wrapIfNeeded, { passive: true });
+function buildSets(){
+  track.innerHTML = "";
+  const set = document.createElement("div");
+  set.className = "set";
+  set.innerHTML = PRODUCTS.map((p,i)=>cardHTML(p, i<4)).join("");
+  track.appendChild(set);
+  const setW = set.offsetWidth;
+  const need = Math.max(3, Math.ceil((car.clientWidth * 2) / setW) + 1);
+  for (let i = 1; i < need; i++){
+    const c = set.cloneNode(true);
+    c.querySelectorAll("img").forEach(im => im.setAttribute("loading","lazy"));
+    track.appendChild(c);
+  }
+  return setW;
+}
 
-      window.addEventListener('resize', measure);
+let setW = buildSets();
 
-      // Wait a frame so layout (fixed-width cards) is settled, then center on the real set
-      requestAnimationFrame(() => {
-        measure();
-        marquee.scrollLeft = setWidth;
-        rafId = requestAnimationFrame(tick);
-      });
-    }
-  </script>
+/* ---------- infinite auto-scroll + drag / touch / wheel ---------- */
+const SPEED = 26;                 // px per second auto-drift
+let x = 0, paused = false, resumeT = null, dragging = false;
+let lastPX = 0, lastPT = 0, vel = 0, momentum = 0, lastT = performance.now();
+
+function interact(){ paused = true; clearTimeout(resumeT); }
+function release(delayMs = 2000){
+  clearTimeout(resumeT);
+  resumeT = setTimeout(() => { paused = false; }, delayMs);
+}
+const wrap = () => { x = ((x % setW) + setW) % setW; };
+
+function frame(now){
+  const dt = Math.min((now - lastT) / 1000, .05); lastT = now;
+  if (!paused && !REDUCED)               x += SPEED * dt;          // auto-drift
+  if (momentum){                                                          // fling decay
+    x -= momentum; momentum *= .94;
+    if (Math.abs(momentum) < .05) momentum = 0;
+  }
+  wrap();
+  track.style.transform = "translate3d(" + (-x).toFixed(2) + "px,0,0)";
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+/* pointer drag (mouse + pen + touch via Pointer Events) */
+car.addEventListener("pointerdown", e => {
+  dragging = true; interact();
+  car.classList.add("dragging");
+  car.setPointerCapture(e.pointerId);
+  lastPX = e.clientX; lastPT = performance.now(); vel = 0; momentum = 0;
+});
+car.addEventListener("pointermove", e => {
+  if (!dragging) return;
+  const now = performance.now(), dx = e.clientX - lastPX, dt = Math.max(now - lastPT, 1);
+  x -= dx;
+  vel = vel * .7 + (dx / dt) * .3;                 // smoothed px/ms
+  lastPX = e.clientX; lastPT = now;
+});
+function endDrag(){
+  if (!dragging) return;
+  dragging = false;
+  car.classList.remove("dragging");
+  momentum = vel * 14;                             // gentle fling
+  release();
+}
+car.addEventListener("pointerup", endDrag);
+car.addEventListener("pointercancel", endDrag);
+
+/* hover pauses, leaving resumes after 2 s (desktop) */
+car.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") interact(); });
+car.addEventListener("pointerleave", e => { if (e.pointerType === "mouse" && !dragging) release(); });
+
+/* wheel / trackpad scrolling — both axes drive the strip */
+let wheelT = null;
+car.addEventListener("wheel", e => {
+  e.preventDefault();
+  interact();
+  x += (Math.abs(e.deltaX) >= Math.abs(e.deltaY) ? e.deltaX : e.deltaY) * 1.15;
+  wrap();
+  clearTimeout(wheelT);
+  wheelT = setTimeout(() => release(), 500);       // wheel streams many events; 2 s starts after they stop
+}, { passive:false });
+/* note: the final idle gap extends the pause to ˜2.5 s worst-case; pure interactions resume after 2 s */
+
+/* keyboard nudges */
+car.addEventListener("keydown", e => {
+  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  e.preventDefault(); interact();
+  x += e.key === "ArrowLeft" ? -140 : 140; wrap(); release();
+});
+
+/* rebuild on resize, keep position ratio */
+let rzT = null;
+addEventListener("resize", () => {
+  clearTimeout(rzT);
+  rzT = setTimeout(() => { const old = setW; setW = buildSets(); x = (x / old) * setW || 0; }, 150);
+});
+
+/* be polite in background tabs */
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) interact(); else release();
+});
+</script>
 </body>
 </html>
