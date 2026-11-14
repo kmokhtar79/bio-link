@@ -105,6 +105,7 @@ body{
   animation:rise .65s cubic-bezier(.2,.7,.2,1) both}
 .link-card:nth-child(1){animation-delay:.10s}.link-card:nth-child(2){animation-delay:.17s}
 .link-card:nth-child(3){animation-delay:.24s}.link-card:nth-child(4){animation-delay:.31s}
+.link-card:nth-child(5){animation-delay:.38s}
 .link-card:hover{transform:translateY(-2px);box-shadow:0 22px 48px rgba(0,0,0,.45);border-color:rgba(255,255,255,.2)}
 .link-card:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px}
 /* white/50% hover + white/20% tap highlight, respecting the card radius */
@@ -120,6 +121,7 @@ body{
 .chip.gum  {background:#FF90E8;border-color:rgba(0,0,0,.18)}
 .chip.x    {background:rgba(255,255,255,.09)}
 .chip.ig   {background:rgba(221,42,123,.14)}
+.chip.tg   {background:rgba(55,174,226,.16)}
 
 .lc-meta{min-width:0}
 .lc-name{font-size:16.5px;font-weight:650;letter-spacing:-.015em}
@@ -129,7 +131,7 @@ body{
 .lc-arrow svg{width:17px;height:17px;display:block}
 
 /* ---------- shop carousel ---------- */
-.shop-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:14px;animation:rise .65s .34s both}
+.shop-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:14px;animation:rise .65s .45s both}
 .shop-head h2{font-size:19px;font-weight:700;letter-spacing:-.02em}
 .shop-head a{font-size:13.5px;font-weight:550;color:var(--blue);text-decoration:none;letter-spacing:-.01em}
 .shop-head a:hover{text-decoration:underline}
@@ -215,10 +217,27 @@ footer a:hover{color:#fff}
 
     <a class="link-card" href="https://imodkit.gumroad.com/" target="_blank" rel="noopener noreferrer">
       <span class="chip gum" aria-hidden="true">
-        <!-- Gumroad mark -->
-        <svg viewBox="0 0 24 24"><text x="12" y="18.2" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="800" fill="#000">G</text></svg>
+        <!-- Gumroad logo — official lowercase “g” mark -->
+        <svg viewBox="0 0 24 24"><path fill="#000" d="M11.993 5.12c4.48 0 5.995 3.025 6.064 4.744h-3.239c-.069-.962-.897-2.406-2.896-2.406-2.136 0-3.514 1.857-3.514 4.126 0 2.27 1.378 4.125 3.514 4.125 1.93 0 2.758-1.512 3.103-3.025h-3.103v-1.238h6.509v6.327h-2.855v-3.989c-.207 1.444-1.102 4.264-4.617 4.264-3.516 0-5.584-2.82-5.584-6.326 0-3.645 2.276-6.602 6.618-6.602z"/></svg>
       </span>
       <span class="lc-meta"><span class="lc-name">Gumroad</span><br><span class="lc-sub">Widget Gallery</span></span>
+      <span class="lc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+    </a>
+
+    <a class="link-card" href="https://t.me/ioscustomization" target="_blank" rel="noopener noreferrer">
+      <span class="chip tg" aria-hidden="true">
+        <!-- Telegram logo — original brand SVG -->
+        <svg viewBox="-12 -12 264 264">
+          <defs><linearGradient id="tgd" x1="120" y1="0" x2="120" y2="240" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#37AEE2"/><stop offset="1" stop-color="#1E96C8"/>
+          </linearGradient></defs>
+          <circle cx="120" cy="120" r="120" fill="url(#tgd)"/>
+          <path fill="#C8DAEA" d="M98 175c-3.888 0-3.227-1.468-4.568-5.17L82 132.207 170 80"/>
+          <path fill="#A9C9DD" d="M98 175c3 0 4.325-1.372 6-3l16-15.558-19.75-11.91"/>
+          <path fill="#fff" d="M100.144 144.446l45.912 33.93c5.24 2.89 9.024 1.394 10.336-4.861l18.744-88.372c1.912-8.652-3.48-12.57-9.44-10.004l-110.09 42.475c-8.452 3.385-8.4 8.11-1.455 10.21l31.163 9.73 72.14-45.524c3.22-1.955 6.17-.904 3.75 1.999z"/>
+        </svg>
+      </span>
+      <span class="lc-meta"><span class="lc-name">Telegram</span><br><span class="lc-sub">Widgy widgets &amp; wallpapers</span></span>
       <span class="lc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
     </a>
 
